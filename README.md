@@ -8,4 +8,5 @@ This code can be used to build a container image and, afterwards, deployed to a 
 ## Credits
 
 https://mczak.com/code/sudoku/
+
 https://github.com/pocketjoso/sudokuJS
