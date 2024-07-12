@@ -1,5 +1,6 @@
-# CodeArts-Demo
+# CodeArts - Demo
 
-Huawei Cloud CodeArts demonstration
+A code repository to be imported by CodeArts Repo. 
 
-For Demonstration purposes, a simple sudoku solver will be implemented in python.
+This repository will contain all the code needed to generate a webpage with a fully functional sudoku game.
+This code can be used to build a container image and, afterwards, deployed to a server in the cloud, such as Huawei Cloud ECS.
