@@ -186,6 +186,38 @@ SOFTWARE.
           font-size: .8em;
          }
         }
+
+        /* For the title*/
+        /* === HEADING STYLE #2 for the title === */
+        .two h1 {
+          text-transform: capitalize;
+        }
+        .two h1:before {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 60px;
+          height: 6px;
+          content: "";
+          background-color: #c50000;
+        }
+
+        .two h1 span {  
+          font-size: 17px;
+          font-weight: 500;
+          text-transform: full-size-kana;
+          letter-spacing: 4px;
+          line-height: 3em;
+          padding-left: 0.25em;
+          color: rgba(0, 0, 0, 0.4);
+          padding-bottom: 10px;
+        }
+        .alt-two h1 {
+          text-align:center;
+        }
+        .alt-two h1:before {
+          left:50%; margin-left:-30px;
+        }
         </style>
         
         <script>
@@ -361,8 +393,15 @@ SOFTWARE.
           updateUIBoard();visualEliminationOfCandidates();if(typeof callback==='function'){callback();}};if(!opts.board){initBoard(opts);generateBoard(opts);renderBoard();}else{board=opts.board;initBoard();renderBoard();visualEliminationOfCandidates();}
           $boardInputs.on("keyup",function(e){var $this=$(this);var id=parseInt($this.attr("id").replace("input-",""));if(e.keyCode>=37&&e.keyCode<=40){keyboardMoveBoardFocus(id,e.keyCode);}});$boardInputs.on("change",function(){var $this=$(this);var id=parseInt($this.attr("id").replace("input-",""));keyboardNumberInput($this,id);});var solveAll=function(){solveMode=SOLVE_MODE_ALL;var canContinue=true;while(canContinue){var startStrat=onlyUpdatedCandidates?2:0;canContinue=solveFn(startStrat);}};var solveStep=function(){solveMode=SOLVE_MODE_STEP;var startStrat=onlyUpdatedCandidates?2:0;solveFn(startStrat);};var getBoard=function(){return board;};var setBoard=function(newBoard){clearBoard();board=newBoard;initBoard();visualEliminationOfCandidates();updateUIBoard(false);};var hideCandidates=function(){$board.removeClass("showCandidates");candidatesShowing=false;};var showCandidates=function(){$board.addClass("showCandidates");candidatesShowing=true;};var setEditingCandidates=function(newVal){editingCandidates=newVal;};return{solveAll:solveAll,solveStep:solveStep,analyzeBoard:analyzeBoard,clearBoard:clearBoard,getBoard:getBoard,setBoard:setBoard,hideCandidates:hideCandidates,showCandidates:showCandidates,setEditingCandidates:setEditingCandidates,generateBoard:generateBoard};};})(window,jQuery);
         </script>
+
         <!-- </head> -->
-        
+        <div class="two alt-two">
+          <h1>Sudoku Game</h1>
+          <h1>
+            <span> Developed and Deployed using CodeArts </span>
+          </h1>
+        </div>
+
         <!-- <body> -->
         <div class="wrap">
                 
