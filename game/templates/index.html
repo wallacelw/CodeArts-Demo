@@ -199,7 +199,6 @@ SOFTWARE.
           width: 60px;
           height: 6px;
           content: "";
-          background-color: #c50000;
         }
 
         .two h1 span {  
@@ -218,7 +217,8 @@ SOFTWARE.
         .alt-two h1:before {
           left:50%; margin-left:-30px;
         }
-        </style>
+
+      </style>
         
         <script>
           /*! jQuery v2.1.0 | (c) 2005, 2014 jQuery Foundation, Inc. | jquery.org/license */
@@ -246,7 +246,7 @@ SOFTWARE.
           opts.boardErrorFn({msg:"invalid board size"});return;}
           for(var i=0;i<boardSize;i++){boardNumbers.push(i+1);nullCandidateList.push(null);}
           generateHouseIndexList();if(!alreadyEnhanced){for(var j=0;j<boardSize*boardSize;j++){var cellVal=(typeof board[j]==="undefined")?null:board[j];var candidates=cellVal===null?boardNumbers.slice():nullCandidateList.slice();board[j]={val:cellVal,candidates:candidates};}}};var renderBoard=function(){var htmlString="";for(var i=0;i<boardSize*boardSize;i++){htmlString+=renderBoardCell(board[i],i);if((i+1)%boardSize===0){htmlString+="<br>";}}
-          $board.append(htmlString);$boardInputs=$board.find("input");$boardInputCandidates=$board.find(".candidates");var HTMLSnippet=['<a href="https://github.com/wallacelw/CodeArts-Demo" target="_blank"> GitHub </a>'].join('');$board.append(HTMLSnippet);};var renderBoardCell=function(boardCell,id){var val=(boardCell.val===null)?"":boardCell.val;var candidates=boardCell.candidates||[];var candidatesString=buildCandidatesString(candidates);var maxlength=(boardSize<10)?" maxlength='1'":"";return "<div class='sudoku-board-cell'>"+
+          $board.append(htmlString);$boardInputs=$board.find("input");$boardInputCandidates=$board.find(".candidates");var HTMLSnippet=['<a href="https://github.com/wallacelw/CodeArts-Demo" target="_blank"> Project GitHub </a>'].join('');$board.append(HTMLSnippet);};var renderBoardCell=function(boardCell,id){var val=(boardCell.val===null)?"":boardCell.val;var candidates=boardCell.candidates||[];var candidatesString=buildCandidatesString(candidates);var maxlength=(boardSize<10)?" maxlength='1'":"";return "<div class='sudoku-board-cell'>"+
           "<input type='text' pattern='\\d*' novalidate id='input-"+id+"' value='"+val+"'"+maxlength+">"+
           "<div id='input-"+id+"-candidates' class='candidates'>"+candidatesString+"</div>"+
           "</div>";};var buildCandidatesString=function(candidatesList){var s="";for(var i=1;i<boardSize+1;i++){if(contains(candidatesList,i))
@@ -394,6 +394,11 @@ SOFTWARE.
           $boardInputs.on("keyup",function(e){var $this=$(this);var id=parseInt($this.attr("id").replace("input-",""));if(e.keyCode>=37&&e.keyCode<=40){keyboardMoveBoardFocus(id,e.keyCode);}});$boardInputs.on("change",function(){var $this=$(this);var id=parseInt($this.attr("id").replace("input-",""));keyboardNumberInput($this,id);});var solveAll=function(){solveMode=SOLVE_MODE_ALL;var canContinue=true;while(canContinue){var startStrat=onlyUpdatedCandidates?2:0;canContinue=solveFn(startStrat);}};var solveStep=function(){solveMode=SOLVE_MODE_STEP;var startStrat=onlyUpdatedCandidates?2:0;solveFn(startStrat);};var getBoard=function(){return board;};var setBoard=function(newBoard){clearBoard();board=newBoard;initBoard();visualEliminationOfCandidates();updateUIBoard(false);};var hideCandidates=function(){$board.removeClass("showCandidates");candidatesShowing=false;};var showCandidates=function(){$board.addClass("showCandidates");candidatesShowing=true;};var setEditingCandidates=function(newVal){editingCandidates=newVal;};return{solveAll:solveAll,solveStep:solveStep,analyzeBoard:analyzeBoard,clearBoard:clearBoard,getBoard:getBoard,setBoard:setBoard,hideCandidates:hideCandidates,showCandidates:showCandidates,setEditingCandidates:setEditingCandidates,generateBoard:generateBoard};};})(window,jQuery);
         </script>
 
+        
+
+        
+        <div class="wrap">
+
         <!-- </head> -->
         <div class="two alt-two">
           <h1>Sudoku Game</h1>
@@ -403,22 +408,22 @@ SOFTWARE.
         </div>
 
         <!-- <body> -->
-        <div class="wrap">
-                
-        <!--show candidates toggle-->
-        <label for="toggleCandidates">Show candidates </label>
-        <input id="toggleCandidates" class="js-candidate-toggle" type="checkbox"/>
+
         <!--generate board buttons-->
-        New:
+        New Game:
         <button type="button" class="sudokubutton1 js-generate-board-btn--easy">Easy</button>
         <button type="button" class="sudokubutton2 js-generate-board-btn--medium">Medium</button>
         <button type="button" class="sudokubutton3 js-generate-board-btn--hard">Hard</button>
         <button type="button" class="sudokubutton4 js-generate-board-btn--very-hard">Very Hard</button>
         
+        <!--show candidates toggle-->
+        <label for="toggleCandidates">Show candidates</label>
+        <input id="toggleCandidates" class="js-candidate-toggle" type="checkbox"/>
+
         <!--the only required html-->
         <div id="sudoku" class="sudoku-board">
         </div>
-        
+
         <!--solve buttons-->
         Solve: <button type="button" class="sudokubutton5 js-solve-step-btn">One Step</button>
         <button type="button" class="sudokubutton6 js-solve-all-btn">All</button>
